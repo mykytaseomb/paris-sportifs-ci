@@ -1,0 +1,11 @@
+// Cloudflare Workers (fichiers statiques) : le site Astro est servi depuis dist/.
+// _redirects (liens /go/) et _headers (noindex préprod) sont générés par scripts/postbuild.mjs.
+{
+  "name": "paris-sportifs-ci",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
