@@ -16,6 +16,19 @@ for (const o of ops) {
 lines.push('', '<FilesMatch "\\.(png|svg|jpg|webp|css|js|woff2)$">', '  Header set Cache-Control "public, max-age=2592000"', '</FilesMatch>',
   '<IfModule mod_headers.c>', '  <If "%{REQUEST_URI} =~ m#^/go/#">', '    Header set X-Robots-Tag "noindex, nofollow"', '  </If>', '</IfModule>', 'ErrorDocument 404 /404.html');
 writeFileSync(new URL('../dist/.htaccess', import.meta.url), lines.join('\n') + '\n');
+
+// Équivalents pour Cloudflare Pages / Netlify (ignorent .htaccess) : _redirects et _headers.
+const redirects = [];
+for (const o of ops) {
+  const main = o.url || home;
+  for (const [suffix, url] of [['', main], ['-apk', o.url_apk || main], ['-promo', o.url_promo || main]]) {
+    redirects.push(`/go/${o.slug}${suffix}/ ${url} 302`, `/go/${o.slug}${suffix} ${url} 302`);
+  }
+}
+writeFileSync(new URL('../dist/_redirects', import.meta.url), redirects.join('\n') + '\n');
+const headers = ['/go/*', '  X-Robots-Tag: noindex, nofollow', '', '/img/*', '  Cache-Control: public, max-age=2592000', ''];
+if (!indexable) headers.unshift('/*', '  X-Robots-Tag: noindex, nofollow', '');
+writeFileSync(new URL('../dist/_headers', import.meta.url), headers.join('\n'));
 const robots = indexable
   ? `User-agent: *\nDisallow: /go/\n\nSitemap: ${meta.site.url}/sitemap-index.xml\n`
   : `# Préproduction : site fermé aux robots\nUser-agent: *\nDisallow: /\n`;
