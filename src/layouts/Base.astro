@@ -1,0 +1,120 @@
+---
+import '../styles/global.css';
+import StickyBar from '../components/StickyBar.astro';
+import { site, nav, getOperator, sports } from '../lib/data';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  brand?: string;
+  type?: string;
+  crumbs?: { name: string; href: string }[];
+  faq?: { q: string; a: string }[];
+  noindex?: boolean;
+}
+const { title, description, path, brand, type = '', crumbs = [], faq = [], noindex = false } = Astro.props;
+const canonical = new URL(path, site.url).href;
+const strip = (s: string) => s.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+
+const ld: object[] = [
+  { '@context': 'https://schema.org', '@type': 'Organization', name: site.name, url: site.url, logo: site.url + '/img/site/logo-light.png' },
+];
+if (crumbs.length) {
+  ld.push({
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: new URL(c.href, site.url).href })),
+  });
+}
+if (faq.length) {
+  ld.push({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: strip(f.a) } })),
+  });
+}
+const showSticky = brand && getOperator(brand) && type !== 'ranking' && type !== 'info';
+---
+<!doctype html>
+<html lang="fr-CI">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {(!site.indexable) ? <meta name="robots" content="noindex, nofollow" /> : noindex && <meta name="robots" content="noindex, follow" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_CI" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={site.url + '/img/site/logo-light.png'} />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&display=swap" />
+  {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify(o)} />)}
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap site-header__in">
+      <a href="/" class="site-logo" aria-label="paris-sportifs.ci, accueil"><img src="/img/site/logo-light.png" alt="paris-sportifs.ci" width="220" height="58" /></a>
+      <nav class="nav-desk" aria-label="Navigation principale">
+        {nav.map((n) => <a href={n.href} aria-current={n.href === path ? 'page' : undefined}>{n.label}</a>)}
+      </nav>
+      <details class="nav-mob">
+        <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+        <nav aria-label="Navigation mobile">
+          {nav.map((n) => <a href={n.href} aria-current={n.href === path ? 'page' : undefined}>{n.label}</a>)}
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  {crumbs.length > 1 && (
+    <nav class="wrap crumbs" aria-label="Fil d'Ariane">
+      {crumbs.map((c, i) => i < crumbs.length - 1 ? <><a href={c.href}>{c.name}</a><span aria-hidden="true">›</span></> : <span>{c.name}</span>)}
+    </nav>
+  )}
+
+  <main class="wrap content">
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__in">
+      <div>
+        <img src="/img/site/logo-dark.png" alt="paris-sportifs.ci" width="180" height="47" loading="lazy" />
+        <p>Comparateur indépendant des sites de paris sportifs accessibles en Côte d'Ivoire.</p>
+      </div>
+      <div>
+        <p class="site-footer__h">Classements</p>
+        <a href="/">Meilleurs sites</a><a href="/application-paris-sportif/">Applications</a><a href="/bonus-paris-sportif/">Bonus</a><a href="/paris-sportif-orange-money/">Orange Money</a>
+      </div>
+      <div>
+        <p class="site-footer__h">Sports</p>
+        {sports.map((s) => <a href={s.href}>{s.label}</a>)}
+      </div>
+      <div>
+        <p class="site-footer__h">Opérateurs</p>
+        <a href="/1xbet/">Avis 1xBet</a><a href="/1xbet-apk/">1xBet APK</a><a href="/code-promo-1xbet/">Code promo 1xBet</a><a href="/1xbet-inscription/">Inscription 1xBet</a>
+      </div>
+      <div>
+        <p class="site-footer__h">Infos</p>
+        <a href="/methodologie/">Méthodologie</a><a href="/jeu-responsable/">Jeu responsable</a><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a>
+      </div>
+    </div>
+  </footer>
+  <div class="rg-band"><strong>18+</strong> Les paris comportent des risques : endettement, dépendance. Jouez avec modération. <a href="/jeu-responsable/">Jeu responsable</a></div>
+  {showSticky && <StickyBar brand={brand!} type={type} />}
+
+  <script is:inline>
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-code]'); if (!b) return;
+      var c = b.getAttribute('data-code'), done = function () { var t = b.innerHTML; b.textContent = 'Copié !'; setTimeout(function () { b.innerHTML = t; }, 1600); };
+      if (navigator.clipboard) navigator.clipboard.writeText(c).then(done, done); else done();
+    });
+    if (window.innerWidth < 760) document.querySelectorAll('details.toc[open]').forEach(function (d) { d.removeAttribute('open'); });
+  </script>
+</body>
+</html>

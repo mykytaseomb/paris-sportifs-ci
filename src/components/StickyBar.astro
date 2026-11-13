@@ -1,0 +1,13 @@
+---
+import Logo from './Logo.astro';
+import { getOperator, goUrl } from '../lib/data';
+interface Props { brand: string; type?: string }
+const { brand, type = '' } = Astro.props;
+const op = getOperator(brand);
+const label = type === 'apk' ? 'Télécharger' : type === 'inscription' ? "S'inscrire" : 'Obtenir le bonus';
+---
+<div class="sticky" role="complementary" aria-label={`Offre ${op.name}`}>
+  <Logo op={op} size="sm" />
+  <p class="sticky__txt"><strong>{op.name}</strong><span>{op.bonus}{op.bonus_max && ` jusqu'à ${op.bonus_max}`}</span></p>
+  <a class="btn btn--cta" href={goUrl(op.slug, type)} rel="sponsored nofollow noopener" target="_blank">{label}</a>
+</div>

@@ -1,0 +1,516 @@
+[
+  {
+    "slug": "1xbet",
+    "name": "1xBet",
+    "rating": 4.6,
+    "badge": "Top du mois",
+    "best_for": "Le plus complet",
+    "logo": "/img/operators/1xbet.png",
+    "logo_dark": false,
+    "bonus": "200 % sur le 1er dépôt",
+    "bonus_max": "130 000 FCFA",
+    "bonus_max_fcfa": 130000,
+    "promo_code": "",
+    "min_dep": "≈ 650 FCFA",
+    "min_dep_fcfa": 650,
+    "payments": [
+      "orange-money",
+      "mtn-momo",
+      "moov-money",
+      "wave"
+    ],
+    "devices": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs",
+      "Live",
+      "eSports"
+    ],
+    "lonaci": "Agréé par la LONACI",
+    "lonaci_status": "agree",
+    "usp": "Le plus grand choix de marchés et des promos chaque semaine",
+    "pros": [
+      "Agréé par la LONACI",
+      "Orange Money, MTN, Moov et Wave",
+      "Plus de 60 sports et beaucoup de live"
+    ],
+    "cons": [
+      "Interface chargée pour un débutant",
+      "Bonus à miser 5 fois en combinés"
+    ],
+    "review_pros": [
+      "Opérateur agréé par la LONACI, avec un domaine ivoirien (1xbet.ci)",
+      "Dépôts et retraits par Orange Money, MTN MoMo, Moov Money et Wave",
+      "Bonus de 200 % sur le 1er dépôt, jusqu'à 130 000 FCFA",
+      "Plus de 60 sports, eSports et un gros volume de matchs en direct",
+      "Application Android en version Lite (15 Mo) pour les petits téléphones",
+      "Promotions régulières : cashback, Promo Store, bonus sur les combinés"
+    ],
+    "review_cons": [
+      "Interface très dense, déroutante au début",
+      "Bonus à miser 5 fois en combinés de 3 sélections minimum",
+      "Application Android hors Play Store, avec beaucoup de fausses copies en circulation",
+      "Premier retrait bloqué tant que l'identité n'est pas vérifiée"
+    ],
+    "url": "https://1xbet.ci/",
+    "url_apk": "https://1xbet.ci/fr/mobile",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "Mise x5 en combinés de 3 sélections (cote 1,40 min.), 30 jours",
+    "app_note": "Version Lite 15 Mo + version complète",
+    "sports": [
+      "foot",
+      "basket",
+      "tennis",
+      "hockey",
+      "fifa",
+      "des",
+      "seka"
+    ]
+  },
+  {
+    "slug": "betclic",
+    "name": "Betclic",
+    "rating": 4.4,
+    "badge": "Idéal pour débuter",
+    "best_for": "Idéal pour débuter",
+    "logo": "/img/operators/betclic.svg",
+    "logo_dark": false,
+    "bonus": "1er pari remboursé en freebets",
+    "bonus_max": "5 000 FCFA",
+    "bonus_max_fcfa": 5000,
+    "promo_code": "",
+    "min_dep": "200 FCFA",
+    "min_dep_fcfa": 200,
+    "payments": [
+      "orange-money",
+      "mtn-momo",
+      "moov-money",
+      "wave"
+    ],
+    "devices": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs",
+      "Live"
+    ],
+    "lonaci": "Agréé par la LONACI",
+    "lonaci_status": "agree",
+    "usp": "Le plus petit dépôt minimum et une interface très simple",
+    "pros": [
+      "Agréé par la LONACI",
+      "Dépôt dès 200 FCFA",
+      "Interface la plus simple du marché"
+    ],
+    "cons": [
+      "Bonus modeste (5 000 FCFA)"
+    ],
+    "url": "https://www.betclic.ci/",
+    "url_apk": "https://www.betclic.ci/download",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "Freebet si le 1er pari est perdant, sans cote minimale imposée",
+    "app_note": "",
+    "sports": [
+      "foot"
+    ]
+  },
+  {
+    "slug": "melbet",
+    "name": "Melbet",
+    "rating": 4.2,
+    "badge": "Gros bonus",
+    "best_for": "Gros bonus sport",
+    "logo": "/img/operators/melbet.png",
+    "logo_dark": false,
+    "bonus": "200 % sur le 1er dépôt",
+    "bonus_max": "130 000 FCFA",
+    "bonus_max_fcfa": 130000,
+    "promo_code": "",
+    "min_dep": "≈ 650 FCFA",
+    "min_dep_fcfa": 650,
+    "payments": [
+      "orange-money",
+      "mtn-momo",
+      "wave"
+    ],
+    "devices": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs",
+      "Live"
+    ],
+    "lonaci": "Absent de la liste LONACI de 2023",
+    "lonaci_status": "absent",
+    "usp": "Gros bonus de dépôt et beaucoup de marchés live",
+    "pros": [
+      "Bonus de 200 % jusqu'à 130 000 FCFA",
+      "Beaucoup de marchés en live",
+      "Orange Money, MTN et Wave"
+    ],
+    "cons": [
+      "Aucun agrément LONACI connu"
+    ],
+    "url": "https://melbet.com.ci/",
+    "url_apk": "https://melbet.com.ci/apk/",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "Conditions non vérifiées : à lire sur le site",
+    "app_note": "",
+    "sports": [
+      "foot",
+      "basket",
+      "tennis",
+      "hockey",
+      "fifa",
+      "des",
+      "seka"
+    ]
+  },
+  {
+    "slug": "betwinner",
+    "name": "BetWinner",
+    "rating": 4.1,
+    "badge": "",
+    "best_for": "Bonus 200 %",
+    "logo": "/img/operators/betwinner.svg",
+    "logo_dark": true,
+    "bonus": "200 % sur le 1er dépôt",
+    "bonus_max": "130 000 FCFA",
+    "bonus_max_fcfa": 130000,
+    "promo_code": "",
+    "min_dep": "600 FCFA",
+    "min_dep_fcfa": 600,
+    "payments": [
+      "orange-money",
+      "mtn-momo",
+      "wave"
+    ],
+    "devices": [
+      "android",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs"
+    ],
+    "lonaci": "Absent de la liste LONACI de 2023",
+    "lonaci_status": "absent",
+    "usp": "Bonus élevé avec des conditions classiques (x5, cote 1,40)",
+    "pros": [
+      "Bonus de 200 % jusqu'à 130 000 FCFA",
+      "Conditions classiques : x5, cote 1,40",
+      "Dépôt dès 600 FCFA"
+    ],
+    "cons": [
+      "Aucun agrément LONACI connu",
+      "Pas d'application iPhone confirmée"
+    ],
+    "url": "https://betwinner.com/fr",
+    "url_apk": "",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "Mise x5 en combinés de 3 sélections (cote 1,40 min.), 30 jours",
+    "app_note": "",
+    "sports": [
+      "foot",
+      "basket",
+      "tennis",
+      "hockey",
+      "fifa",
+      "des",
+      "seka"
+    ]
+  },
+  {
+    "slug": "lonaci-online",
+    "name": "Lonaci Online",
+    "rating": 4.0,
+    "badge": "Officiel",
+    "best_for": "Plateforme publique",
+    "logo": "/img/operators/lonaci-online.png",
+    "logo_dark": false,
+    "bonus": "Pas d'offre de bienvenue annoncée",
+    "bonus_max": "",
+    "bonus_max_fcfa": 0,
+    "promo_code": "",
+    "min_dep": "",
+    "min_dep_fcfa": null,
+    "payments": [],
+    "devices": [
+      "web"
+    ],
+    "products": [
+      "Paris sportifs"
+    ],
+    "lonaci": "Plateforme officielle de la LONACI",
+    "lonaci_status": "officiel",
+    "usp": "La plateforme en ligne de l'opérateur public",
+    "pros": [
+      "Plateforme de l'opérateur public",
+      "Support par chat annoncé 24 h/24"
+    ],
+    "cons": [
+      "Aucun bonus de bienvenue",
+      "Moyens de paiement non détaillés"
+    ],
+    "url": "https://lonacionline.ci/",
+    "url_apk": "",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "",
+    "app_note": "",
+    "sports": [
+      "foot"
+    ]
+  },
+  {
+    "slug": "paripesa",
+    "name": "PariPesa",
+    "rating": 4.0,
+    "badge": "Retraits rapides",
+    "best_for": "Retraits rapides",
+    "logo": "/img/operators/paripesa.svg",
+    "logo_dark": true,
+    "bonus": "100 % sur le 1er dépôt",
+    "bonus_max": "65 600 FCFA",
+    "bonus_max_fcfa": 65600,
+    "promo_code": "",
+    "min_dep": "≈ 656 FCFA",
+    "min_dep_fcfa": 656,
+    "payments": [
+      "orange-money",
+      "mtn-momo",
+      "moov-money",
+      "wave"
+    ],
+    "devices": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs"
+    ],
+    "lonaci": "Absent de la liste LONACI de 2023",
+    "lonaci_status": "absent",
+    "usp": "Retraits rapides via les options « Fast » d'Orange, MTN et Wave",
+    "pros": [
+      "Retraits relevés entre 10 et 30 minutes",
+      "Les 4 portefeuilles mobiles",
+      "Applications Android et iPhone"
+    ],
+    "cons": [
+      "Aucun agrément LONACI connu",
+      "Bonus plus faible (100 %)"
+    ],
+    "url": "https://paripesa.com/fr",
+    "url_apk": "",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "Mise x5 en combinés de 3 sélections (cote 1,40 min.), 30 jours",
+    "app_note": "",
+    "sports": [
+      "foot",
+      "basket",
+      "tennis",
+      "hockey",
+      "fifa",
+      "des",
+      "seka"
+    ]
+  },
+  {
+    "slug": "betmomo",
+    "name": "Betmomo",
+    "rating": 3.9,
+    "badge": "Sans dépôt",
+    "best_for": "Bonus sans dépôt",
+    "logo": "/img/operators/betmomo.svg",
+    "logo_dark": true,
+    "bonus": "Au choix : sans dépôt, 1er pari assuré ou pack Akwaba",
+    "bonus_max": "20 000 FCFA",
+    "bonus_max_fcfa": 20000,
+    "bonus_no_deposit": true,
+    "promo_code": "",
+    "min_dep": "500 FCFA",
+    "min_dep_fcfa": 500,
+    "payments": [
+      "orange-money",
+      "moov-money",
+      "crypto"
+    ],
+    "devices": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs"
+    ],
+    "lonaci": "Agrément LONACI annoncé par l'opérateur",
+    "lonaci_status": "declare",
+    "usp": "Trois offres de bienvenue, dont une sans dépôt",
+    "pros": [
+      "10 000 FCFA offerts sans dépôt",
+      "Trois offres de bienvenue au choix",
+      "Application iPhone et Android"
+    ],
+    "cons": [
+      "Wave et MTN non confirmés en Côte d'Ivoire"
+    ],
+    "url": "https://www.betmomo.com/fr/",
+    "url_apk": "",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "10 000 FCFA sans dépôt (5 000 sport + 5 000 casino), ou 1er pari assuré jusqu'à 20 000 FCFA",
+    "app_note": "",
+    "sports": [
+      "foot"
+    ]
+  },
+  {
+    "slug": "akwabet",
+    "name": "AkwaBet",
+    "rating": 3.8,
+    "badge": "100 % ivoirien",
+    "best_for": "Petit budget",
+    "logo": "",
+    "icon": "/img/operators/ic-akwabet.png",
+    "logo_dark": false,
+    "bonus": "100 % sur le 1er dépôt (freebet)",
+    "bonus_max": "20 000 FCFA",
+    "bonus_max_fcfa": 20000,
+    "promo_code": "",
+    "min_dep": "100 FCFA",
+    "min_dep_fcfa": 100,
+    "payments": [
+      "orange-money",
+      "mtn-momo",
+      "moov-money",
+      "wave"
+    ],
+    "devices": [
+      "android",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs"
+    ],
+    "lonaci": "Sous contrat LONACI selon l'opérateur",
+    "lonaci_status": "declare",
+    "usp": "Plateforme 100 % ivoirienne, mises dès 10 FCFA",
+    "pros": [
+      "Recharge dès 100 FCFA, mises dès 10 FCFA",
+      "Les 4 portefeuilles mobiles",
+      "Start-up ivoirienne"
+    ],
+    "cons": [
+      "Bonus difficile à débloquer (x6, cote totale 25)",
+      "Pas d'application iPhone"
+    ],
+    "url": "https://akwabet.ci/",
+    "url_apk": "",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "Freebet non retirable, mise x6 en 7 jours, combinés de 5 matchs (cote 2 min., cote totale 25)",
+    "app_note": "",
+    "sports": [
+      "foot"
+    ]
+  },
+  {
+    "slug": "1win",
+    "name": "1win",
+    "rating": 3.8,
+    "badge": "Bonus casino",
+    "best_for": "Bonus casino",
+    "logo": "/img/operators/1win.png",
+    "logo_dark": false,
+    "bonus": "500 % répartis sur 4 dépôts (casino)",
+    "bonus_max": "",
+    "bonus_max_fcfa": 0,
+    "promo_code": "",
+    "min_dep": "≈ 1 000 FCFA",
+    "min_dep_fcfa": 1000,
+    "payments": [
+      "orange-money",
+      "mtn-momo"
+    ],
+    "devices": [
+      "android",
+      "web"
+    ],
+    "products": [
+      "Paris sportifs"
+    ],
+    "lonaci": "Absent de la liste LONACI de 2023",
+    "lonaci_status": "absent",
+    "usp": "Le bonus casino le plus généreux, réparti sur 4 dépôts",
+    "pros": [
+      "Bonus casino de 500 % sur 4 dépôts",
+      "Application Android"
+    ],
+    "cons": [
+      "Bonus pensé pour le casino, pas pour le sport",
+      "Aucun agrément LONACI connu"
+    ],
+    "url": "",
+    "url_apk": "",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "Bonus casino, mise x30",
+    "app_note": "",
+    "sports": [
+      "foot"
+    ]
+  },
+  {
+    "slug": "1bet",
+    "name": "1Bet",
+    "rating": 2.5,
+    "badge": "",
+    "best_for": "",
+    "logo": "",
+    "icon": "/img/operators/ic-1bet.png",
+    "logo_dark": false,
+    "bonus": "Offre non vérifiée",
+    "bonus_max": "",
+    "bonus_max_fcfa": 0,
+    "promo_code": "",
+    "min_dep": "",
+    "min_dep_fcfa": null,
+    "payments": [],
+    "devices": [
+      "web"
+    ],
+    "products": [
+      "Paris sportifs"
+    ],
+    "lonaci": "Absent de la liste LONACI de 2023",
+    "lonaci_status": "absent",
+    "usp": "Opérateur de Curaçao visé par des plaintes de joueurs en 2025",
+    "pros": [],
+    "cons": [
+      "Plaintes de joueurs relayées en 2025",
+      "Offre ivoirienne non vérifiée"
+    ],
+    "url": "https://1bet.com/",
+    "url_apk": "",
+    "url_promo": "",
+    "verified": "09/11/2026",
+    "wagering": "",
+    "app_note": "",
+    "sports": [
+      "foot"
+    ]
+  }
+]

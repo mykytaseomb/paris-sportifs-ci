@@ -1,0 +1,13 @@
+---
+import OperatorCard from './OperatorCard.astro';
+import { rankOperators, type RankFilter } from '../lib/data';
+interface Props { filter?: RankFilter; type?: string; note?: string }
+const { filter = {}, type = '', note } = Astro.props;
+const list = rankOperators(filter);
+const first = list[0];
+---
+<section class="ranking" aria-label="Classement">
+  <p class="ranking__count">{list.length} site{list.length > 1 ? 's' : ''} correspondant{list.length > 1 ? 's' : ''}{note ? ` · ${note}` : ''}</p>
+  {list.map((op, i) => <OperatorCard op={op} rank={i + 1} type={type} />)}
+  <p class="small">Classement vérifié le {first?.verified} · 18+ · Liens partenaires signalés</p>
+</section>

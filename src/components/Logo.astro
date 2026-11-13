@@ -1,0 +1,12 @@
+---
+import type { Operator } from '../lib/data';
+interface Props { op: Operator; size?: 'sm' | 'md' | 'lg' }
+const { op, size = 'md' } = Astro.props;
+const cls = ['logo', `logo--${size}`, op.logo_dark ? 'logo--dark' : '', !op.logo && op.icon ? 'logo--icon' : '', !op.logo && !op.icon ? 'logo--text' : '']
+  .filter(Boolean).join(' ');
+---
+<span class={cls}>
+  {op.logo ? <img src={op.logo} alt={op.name} loading="lazy" decoding="async" />
+    : op.icon ? <img src={op.icon} alt={op.name} loading="lazy" decoding="async" />
+    : <span>{op.name}</span>}
+</span>

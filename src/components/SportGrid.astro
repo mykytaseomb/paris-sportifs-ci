@@ -1,0 +1,20 @@
+---
+import { sports } from '../lib/data';
+const current = Astro.url.pathname;
+const { title = 'Parier par sport' } = Astro.props;
+---
+<nav class="sportgrid" aria-label={title}>
+  <p class="sportgrid__h">{title}</p>
+  <ul>
+    {sports.map((s) => <li><a href={s.href} aria-current={s.href === current ? 'page' : undefined}>{s.label}</a></li>)}
+  </ul>
+</nav>
+<style>
+  .sportgrid { margin: 1.5rem 0; padding: 1rem 1.1rem; border: 1px solid var(--line, #e3e6ea); border-radius: 12px; background: var(--card, #fff); }
+  .sportgrid__h { margin: 0 0 .6rem; font-weight: 700; font-size: .95rem; }
+  .sportgrid ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; }
+  .sportgrid li { margin: 0; }
+  .sportgrid a { display: block; padding: .55rem .75rem; border-radius: 8px; background: var(--bg-soft, #f4f6f8); text-decoration: none; font-weight: 600; font-size: .92rem; color: inherit; }
+  .sportgrid a:hover { background: var(--accent-soft, #e7f2ec); }
+  .sportgrid a[aria-current='page'] { background: var(--accent, #0f7a4a); color: #fff; }
+</style>

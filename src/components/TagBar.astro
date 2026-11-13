@@ -1,0 +1,7 @@
+---
+import { tags } from '../lib/data';
+const current = Astro.url.pathname;
+---
+<nav class="tagbar" aria-label="Catégories du classement">
+  {tags.map((t) => <a href={t.href} class={t.href === current ? 'is-active' : undefined}>{t.label}</a>)}
+</nav>

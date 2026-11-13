@@ -1,0 +1,7 @@
+---
+/** Nombre d'opérateurs correspondant à un filtre : le texte reste juste quand les données changent. */
+import { rankOperators, operators, type RankFilter } from '../lib/data';
+interface Props { filter?: RankFilter; total?: boolean }
+const { filter = {}, total = false } = Astro.props;
+---
+{total ? operators.length : rankOperators(filter).length}

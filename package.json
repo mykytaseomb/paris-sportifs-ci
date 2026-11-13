@@ -1,0 +1,17 @@
+{
+  "name": "paris-sportifs-ci",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/postbuild.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.18.2",
+    "simple-icons": "^13.21.0"
+  }
+}

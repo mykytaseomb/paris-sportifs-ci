@@ -1,0 +1,5 @@
+---
+/** Emplacement de capture d'écran : visible seulement en développement (npm run dev). */
+const show = import.meta.env.DEV || import.meta.env.PUBLIC_SHOW_TODO === '1';
+---
+{show && <div class="shot-todo"><strong>📸 Capture à ajouter :</strong> <slot /></div>}

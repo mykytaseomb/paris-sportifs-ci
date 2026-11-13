@@ -1,0 +1,134 @@
+{
+  "site": {
+    "name": "paris-sportifs.ci",
+    "url": "https://paris-sportifs.com.ci",
+    "author": "La rédaction",
+    "author_page": "/a-propos/",
+    "indexable": false
+  },
+  "payments": {
+    "orange-money": {
+      "name": "Orange Money",
+      "icon": "/img/pay/orange-money.svg"
+    },
+    "mtn-momo": {
+      "name": "MTN MoMo",
+      "icon": "/img/pay/mtn-momo.svg"
+    },
+    "moov-money": {
+      "name": "Moov Money",
+      "icon": "/img/pay/moov-money.png"
+    },
+    "wave": {
+      "name": "Wave",
+      "icon": "/img/pay/wave.png"
+    },
+    "visa": {
+      "name": "Visa",
+      "icon": "/img/pay/visa.svg"
+    },
+    "mastercard": {
+      "name": "Mastercard",
+      "icon": "/img/pay/mastercard.svg"
+    },
+    "crypto": {
+      "name": "Cryptomonnaies",
+      "icon": "/img/pay/crypto.svg"
+    }
+  },
+  "devices": {
+    "android": {
+      "name": "Android (APK)",
+      "icon": "/img/dev/android.svg"
+    },
+    "ios": {
+      "name": "iPhone (iOS)",
+      "icon": "/img/dev/ios.svg"
+    },
+    "web": {
+      "name": "Site mobile",
+      "icon": ""
+    }
+  },
+  "nav": [
+    {
+      "label": "Classement",
+      "href": "/"
+    },
+    {
+      "label": "Football",
+      "href": "/paris-sportif-foot/"
+    },
+    {
+      "label": "Applications",
+      "href": "/application-paris-sportif/"
+    },
+    {
+      "label": "Bonus",
+      "href": "/bonus-paris-sportif/"
+    },
+    {
+      "label": "Orange Money",
+      "href": "/paris-sportif-orange-money/"
+    },
+    {
+      "label": "Avis 1xBet",
+      "href": "/1xbet/"
+    }
+  ],
+  "tags": [
+    {
+      "label": "Tous les sites",
+      "href": "/"
+    },
+    {
+      "label": "#applications",
+      "href": "/application-paris-sportif/"
+    },
+    {
+      "label": "#bonus",
+      "href": "/bonus-paris-sportif/"
+    },
+    {
+      "label": "#Orange Money",
+      "href": "/paris-sportif-orange-money/"
+    }
+  ],
+  "sports": [
+    {
+      "key": "foot",
+      "label": "Football",
+      "href": "/paris-sportif-foot/"
+    },
+    {
+      "key": "basket",
+      "label": "Basketball",
+      "href": "/paris-basket/"
+    },
+    {
+      "key": "tennis",
+      "label": "Tennis",
+      "href": "/paris-tennis/"
+    },
+    {
+      "key": "hockey",
+      "label": "Hockey sur glace",
+      "href": "/paris-hockey-sur-glace/"
+    },
+    {
+      "key": "fifa",
+      "label": "FIFA (e-football)",
+      "href": "/paris-fifa/"
+    },
+    {
+      "key": "des",
+      "label": "Dés (Dice)",
+      "href": "/paris-des/"
+    },
+    {
+      "key": "seka",
+      "label": "Seka",
+      "href": "/seka/"
+    }
+  ]
+}

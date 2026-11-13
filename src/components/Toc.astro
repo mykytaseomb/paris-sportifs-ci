@@ -1,0 +1,10 @@
+---
+/** Sommaire : titres H2 de la page, transmis par le gabarit via Astro.locals.headings. */
+const headings = (((Astro.locals as any).headings ?? []) as { depth: number; slug: string; text: string }[]).filter((h) => h.depth === 2);
+---
+{headings.length > 2 && (
+  <details class="toc" open>
+    <summary class="toc__title">Sommaire</summary>
+    <nav aria-label="Sommaire"><ol>{headings.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav>
+  </details>
+)}

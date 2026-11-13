@@ -1,0 +1,53 @@
+---
+// Gabarit unique : toutes les pages viennent des fichiers MDX de src/content/pages (champ « path »).
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Byline from '../components/Byline.astro';
+import Offer from '../components/Offer.astro';
+import V from '../components/V.astro';
+import Facts from '../components/Facts.astro';
+import ProsCons from '../components/ProsCons.astro';
+import Alternatives from '../components/Alternatives.astro';
+import Toc from '../components/Toc.astro';
+import Faq from '../components/Faq.astro';
+import Note from '../components/Note.astro';
+import Warn from '../components/Warn.astro';
+import Rg from '../components/Rg.astro';
+import Shot from '../components/Shot.astro';
+import Ranking from '../components/Ranking.astro';
+import Picks from '../components/Picks.astro';
+import TagBar from '../components/TagBar.astro';
+import CompareTable from '../components/CompareTable.astro';
+import Count from '../components/Count.astro';
+import SportGrid from '../components/SportGrid.astro';
+import { getOperator } from '../lib/data';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((entry) => {
+    const trimmed = entry.data.path.replace(/^\/|\/$/g, '');
+    return { params: { slug: trimmed || undefined }, props: { entry } };
+  });
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content, headings } = await render(entry);
+(Astro.locals as any).headings = headings;
+(Astro.locals as any).updated = d.updated;
+
+const crumbs = [{ name: 'Accueil', href: '/' }];
+if (d.brand && d.type && d.type !== 'ranking' && d.type !== 'info') {
+  const op = getOperator(d.brand);
+  if (d.path !== `/${op.slug}/`) crumbs.push({ name: op.name, href: `/${op.slug}/` });
+}
+if (d.path !== '/') crumbs.push({ name: d.breadcrumb ?? d.title, href: d.path });
+
+const components = { Byline, Offer, V, Facts, ProsCons, Alternatives, Toc, Faq, Note, Warn, Rg, Shot, Ranking, Picks, TagBar, CompareTable, Count, SportGrid };
+---
+<Base title={d.seo_title} description={d.seo_desc} path={d.path} brand={d.brand} type={d.type} crumbs={crumbs} faq={d.faq}>
+  <article class="prose">
+    <h1>{d.title}</h1>
+    <Content components={components} />
+  </article>
+</Base>

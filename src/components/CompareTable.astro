@@ -1,0 +1,34 @@
+---
+/** Tableau comparatif généré depuis les données (se met à jour avec operators.json). */
+import { rankOperators, payments, devices, pageUrl, goUrl, type RankFilter } from '../lib/data';
+interface Props { filter?: RankFilter; cols: string[]; type?: string }
+const { filter = {}, cols, type = '' } = Astro.props;
+const list = rankOperators(filter);
+const HEAD: Record<string, string> = {
+  bonus: 'Bonus de bienvenue', wagering: 'Conditions', min_dep: 'Dépôt min.', payments: 'Paiements',
+  android: 'Android', ios: 'iPhone', lonaci: 'Statut', rating: 'Note',
+};
+const rows = await Promise.all(list.map(async (o) => ({ o, review: await pageUrl(o.slug), sub: type ? await pageUrl(o.slug, type) : '' })));
+const cell = (o: any, c: string) => {
+  switch (c) {
+    case 'bonus': return o.bonus + (o.bonus_max ? ` jusqu'à ${o.bonus_max}` : '');
+    case 'payments': return o.payments.map((p: string) => payments[p]?.name).filter(Boolean).join(', ') || 'Non publiés';
+    case 'android': return o.devices.includes('android') ? 'Oui (APK)' : 'Non';
+    case 'ios': return o.devices.includes('ios') ? 'Oui (App Store)' : 'Non';
+    case 'lonaci': return o.lonaci;
+    case 'rating': return o.rating.toFixed(1).replace('.', ',') + '/5';
+    default: return o[c] || '—';
+  }
+};
+---
+<div class="table-wrap"><table>
+  <thead><tr><th>Site</th>{cols.map((c) => <th>{HEAD[c] ?? c}</th>)}</tr></thead>
+  <tbody>
+    {rows.map(({ o, review, sub }) => (
+      <tr>
+        <td><strong>{sub ? <a href={sub}>{o.name}</a> : review ? <a href={review}>{o.name}</a> : o.name}</strong></td>
+        {cols.map((c) => <td>{cell(o, c)}</td>)}
+      </tr>
+    ))}
+  </tbody>
+</table></div>

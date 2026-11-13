@@ -1,0 +1,11 @@
+---
+import { getOperator } from '../lib/data';
+interface Props { brand: string }
+const op = getOperator(Astro.props.brand);
+const pros = op.review_pros ?? op.pros;
+const cons = op.review_cons ?? op.cons;
+---
+<div class="proscons">
+  <div class="proscons__pros"><h3>Points forts</h3><ul>{pros.map((p) => <li>{p}</li>)}</ul></div>
+  <div class="proscons__cons"><h3>Points faibles</h3><ul>{cons.map((p) => <li>{p}</li>)}</ul></div>
+</div>

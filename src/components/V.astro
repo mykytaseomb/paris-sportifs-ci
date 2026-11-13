@@ -1,0 +1,10 @@
+---
+/** Valeur d'un opérateur dans le texte : <V b="1xbet" f="bonus_max" d="…" /> */
+import { getOperator, fmtRating } from '../lib/data';
+interface Props { b: string; f: string; d?: string }
+const { b, f, d = '' } = Astro.props;
+const op = getOperator(b) as Record<string, any>;
+let val = f === 'rating' ? fmtRating(op.rating) : String(op[f] ?? '').trim();
+if (!val) val = d;
+---
+{val}

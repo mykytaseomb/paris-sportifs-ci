@@ -1,0 +1,16 @@
+---
+import { getOperator, fmtRating, payments } from '../lib/data';
+interface Props { brand: string }
+const op = getOperator(Astro.props.brand);
+const rows: [string, string][] = [
+  ['Note de la rédaction', `${fmtRating(op.rating)} / 5`],
+  ["Statut en Côte d'Ivoire", op.lonaci],
+  ['Bonus de bienvenue', op.bonus + (op.bonus_max ? ` jusqu'à ${op.bonus_max}` : '')],
+  ['Dépôt minimum', op.min_dep],
+  ['Paiements', op.payments.map((p) => payments[p]?.name).filter(Boolean).join(', ')],
+  ['Produits', op.products.join(', ')],
+];
+---
+<div class="table-wrap facts"><table><tbody>
+  {rows.filter(([, v]) => v).map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td></tr>)}
+</tbody></table></div>

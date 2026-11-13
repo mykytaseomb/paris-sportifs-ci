@@ -1,0 +1,22 @@
+---
+import Logo from './Logo.astro';
+import { rankOperators, pageUrl, goUrl, fmtRating } from '../lib/data';
+interface Props { brand: string; type?: string; count?: number }
+const { brand, type = '', count = 3 } = Astro.props;
+const list = rankOperators({ min_rating: 3.5 }).filter((o) => o.slug !== brand).slice(0, count);
+const items = await Promise.all(list.map(async (o) => ({ o, own: await pageUrl(o.slug, type) })));
+---
+<div class="alts">
+  {items.map(({ o, own }) => (
+    <div class="alt">
+      <Logo op={o} size="sm" />
+      <div>
+        <p class="alt__name">
+          {own ? <a href={own}>{o.name}</a> : <a href={goUrl(o.slug, type)} rel="sponsored nofollow noopener" target="_blank">{o.name}</a>}
+          <span class="muted"> {fmtRating(o.rating)}/5</span>
+        </p>
+        <p class="alt__usp">{o.usp}</p>
+      </div>
+    </div>
+  ))}
+</div>
