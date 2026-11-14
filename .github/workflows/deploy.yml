@@ -1,6 +1,6 @@
 # Build Astro + mise en ligne FTP sur l'hébergement (Namecheap) à chaque push sur main.
 # Secrets à créer dans GitHub → Settings → Secrets and variables → Actions :
-#   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD  (et FTP_DIR si le site n'est pas dans public_html/)
+#   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD. Le compte FTP doit avoir pour dossier la racine du domaine.
 name: Deploy
 on:
   push:
@@ -22,14 +22,6 @@ jobs:
       - name: Pas de secrets FTP, mise en ligne ignorée (build vérifié seulement)
         if: env.HAS_FTP != 'true'
         run: echo "Ajoutez FTP_SERVER, FTP_USERNAME, FTP_PASSWORD dans les secrets pour activer la mise en ligne."
-      - name: Dossier FTP (ajoute le / final si absent)
-        if: env.HAS_FTP == 'true'
-        env:
-          RAW_DIR: ${{ secrets.FTP_DIR }}
-        run: |
-          d="${RAW_DIR:-public_html/}"
-          case "$d" in */) ;; *) d="$d/";; esac
-          echo "FTP_DIR_FIXED=$d" >> "$GITHUB_ENV"
       - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         if: env.HAS_FTP == 'true'
         with:
@@ -38,4 +30,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./dist/
-          server-dir: ${{ env.FTP_DIR_FIXED }}
+          server-dir: ./   # le compte FTP doit pointer sur la racine du domaine (paris-sportifs.com.ci)
