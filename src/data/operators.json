@@ -39,7 +39,7 @@
     ],
     "cons": [
       "Interface chargée pour un débutant",
-      "Bonus à miser 5 fois en combinés"
+      "Moitié du bonus à miser 30 fois sur 1xGames"
     ],
     "review_pros": [
       "Opérateur agréé par la LONACI, avec un domaine ivoirien (1xbet.ci)",
@@ -51,7 +51,7 @@
     ],
     "review_cons": [
       "Interface très dense, déroutante au début",
-      "Bonus à miser 5 fois en combinés de 3 sélections minimum",
+      "Moitié du bonus à miser 30 fois sur les jeux 1xGames",
       "Application Android hors Play Store, avec beaucoup de fausses copies en circulation",
       "Premier retrait bloqué tant que l'identité n'est pas vérifiée"
     ],
@@ -59,7 +59,7 @@
     "url_apk": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr/mobile",
     "url_promo": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr/promo",
     "verified": "09/11/2026",
-    "wagering": "Mise x5 en combinés de 3 sélections (cote 1,40 min.), 30 jours",
+    "wagering": "Moitié du bonus x5 en combinés de 3 sélections (cote 1,40 min.), moitié x30 sur 1xGames, 30 jours",
     "app_note": "Version Lite 15 Mo + version complète",
     "sports": [
       "foot",
@@ -223,33 +223,34 @@
     "payments": [
       "orange-money",
       "mtn-momo",
+      "moov-money",
       "wave"
     ],
     "devices": [
       "android",
+      "ios",
       "web"
     ],
     "products": [
       "Paris sportifs"
     ],
-    "lonaci": "Absent de la liste LONACI de 2023",
+    "lonaci": "Non agréé par la LONACI",
     "lonaci_status": "absent",
-    "usp": "Bonus élevé avec des conditions classiques (x5, cote 1,40)",
+    "usp": "Gros bonus et beaucoup de streaming, mais pas d'agrément LONACI",
     "pros": [
-      "Bonus de 200 % jusqu'à 130 000 FCFA",
-      "Conditions classiques : x5, cote 1,40",
-      "Dépôt dès 600 FCFA"
+      "Bonus 200 % jusqu'à 130 000 FCFA",
+      "4 portefeuilles mobiles",
+      "Streaming et cash out"
     ],
     "cons": [
-      "Aucun agrément LONACI connu",
-      "Pas d'application iPhone confirmée"
+      "Non agréé par la LONACI (confirmé en février 2026)"
     ],
     "url": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr",
     "url_apk": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr/mobile",
     "url_promo": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr/promo",
-    "verified": "09/11/2026",
-    "wagering": "Mise x5 en combinés de 3 sélections (cote 1,40 min.), 30 jours",
-    "app_note": "",
+    "verified": "22/11/2026",
+    "wagering": "Moitié du bonus x5 en combinés de 3 sélections (cote 1,40 min.), moitié x30 sur Win Games, 30 jours",
+    "app_note": "APK Android 55,77 Mo (Android 7.0+), app iOS 231,6 Mo (iOS 15+)",
     "sports": [
       "foot",
       "basket",
@@ -258,6 +259,18 @@
       "fifa",
       "des",
       "seka"
+    ],
+    "review_pros": [
+      "Bonus de 200 % jusqu'à 130 000 FCFA dès 600 FCFA de dépôt",
+      "Orange Money, MTN MoMo, Moov Money et Wave",
+      "Plus de 40 sports, streaming et cash out sur une partie des matchs",
+      "APK Android léger (55,77 Mo)"
+    ],
+    "review_cons": [
+      "Non agréé en Côte d'Ivoire : la LONACI l'a confirmé devant le tribunal du PPEF en février 2026",
+      "Aucun recours local en cas de litige",
+      "Moitié du bonus à miser 30 fois sur les jeux Win Games",
+      "Difficultés de retrait signalées dans des avis de joueurs publiés en 2025 et 2026"
     ]
   },
   {

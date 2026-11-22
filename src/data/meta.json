@@ -225,6 +225,10 @@
           "href": "/code-promo-betclic/"
         },
         {
+          "label": "Code promo BetWinner",
+          "href": "/code-promo-betwinner/"
+        },
+        {
           "label": "Code promo 1xBet",
           "href": "/code-promo-1xbet/"
         }
@@ -249,6 +253,10 @@
         {
           "label": "Betclic APK",
           "href": "/betclic-apk/"
+        },
+        {
+          "label": "BetWinner APK",
+          "href": "/betwinner-apk/"
         },
         {
           "label": "1xBet APK",
@@ -287,6 +295,10 @@
           "href": "/betclic/"
         },
         {
+          "label": "Avis BetWinner",
+          "href": "/betwinner/"
+        },
+        {
           "label": "Inscription Melbet",
           "href": "/melbet-inscription/"
         },
@@ -297,6 +309,10 @@
         {
           "label": "Inscription Betclic",
           "href": "/betclic-inscription/"
+        },
+        {
+          "label": "Inscription BetWinner",
+          "href": "/betwinner-inscription/"
         }
       ]
     }
