@@ -217,6 +217,10 @@
           "href": "/paris-sportif-gratuit/"
         },
         {
+          "label": "Code promo Melbet",
+          "href": "/code-promo-melbet/"
+        },
+        {
           "label": "Code promo 1xBet",
           "href": "/code-promo-1xbet/"
         }
@@ -233,6 +237,10 @@
         {
           "label": "APK Android",
           "href": "/paris-sportif-apk/"
+        },
+        {
+          "label": "Melbet APK",
+          "href": "/melbet-apk/"
         },
         {
           "label": "1xBet APK",
@@ -256,8 +264,16 @@
     },
     {
       "label": "Opérateurs",
-      "href": "/1xbet/",
+      "href": "/melbet/",
       "items": [
+        {
+          "label": "Avis Melbet",
+          "href": "/melbet/"
+        },
+        {
+          "label": "Inscription Melbet",
+          "href": "/melbet-inscription/"
+        },
         {
           "label": "Avis 1xBet",
           "href": "/1xbet/"
@@ -265,14 +281,6 @@
         {
           "label": "Inscription 1xBet",
           "href": "/1xbet-inscription/"
-        },
-        {
-          "label": "Code promo 1xBet",
-          "href": "/code-promo-1xbet/"
-        },
-        {
-          "label": "1xBet APK",
-          "href": "/1xbet-apk/"
         }
       ]
     }
