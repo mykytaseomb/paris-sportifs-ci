@@ -3,7 +3,7 @@
     "slug": "1xbet",
     "name": "1xBet",
     "rating": 4.6,
-    "badge": "Top du mois",
+    "badge": "Le plus complet",
     "best_for": "Le plus complet",
     "logo": "/img/operators/1xbet.png",
     "logo_dark": false,
@@ -69,7 +69,8 @@
       "fifa",
       "des",
       "seka"
-    ]
+    ],
+    "priority": 2
   },
   {
     "slug": "betclic",
@@ -125,7 +126,7 @@
     "slug": "melbet",
     "name": "Melbet",
     "rating": 4.2,
-    "badge": "Gros bonus",
+    "badge": "Top du mois",
     "best_for": "Gros bonus sport",
     "logo": "/img/operators/melbet.png",
     "logo_dark": false,
@@ -174,7 +175,8 @@
       "fifa",
       "des",
       "seka"
-    ]
+    ],
+    "priority": 1
   },
   {
     "slug": "betwinner",
