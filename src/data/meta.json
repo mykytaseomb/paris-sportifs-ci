@@ -221,6 +221,10 @@
           "href": "/code-promo-melbet/"
         },
         {
+          "label": "Code promo Betclic",
+          "href": "/code-promo-betclic/"
+        },
+        {
           "label": "Code promo 1xBet",
           "href": "/code-promo-1xbet/"
         }
@@ -241,6 +245,10 @@
         {
           "label": "Melbet APK",
           "href": "/melbet-apk/"
+        },
+        {
+          "label": "Betclic APK",
+          "href": "/betclic-apk/"
         },
         {
           "label": "1xBet APK",
@@ -271,16 +279,24 @@
           "href": "/melbet/"
         },
         {
-          "label": "Inscription Melbet",
-          "href": "/melbet-inscription/"
-        },
-        {
           "label": "Avis 1xBet",
           "href": "/1xbet/"
         },
         {
+          "label": "Avis Betclic",
+          "href": "/betclic/"
+        },
+        {
+          "label": "Inscription Melbet",
+          "href": "/melbet-inscription/"
+        },
+        {
           "label": "Inscription 1xBet",
           "href": "/1xbet-inscription/"
+        },
+        {
+          "label": "Inscription Betclic",
+          "href": "/betclic-inscription/"
         }
       ]
     }

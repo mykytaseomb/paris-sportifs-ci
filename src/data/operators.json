@@ -114,13 +114,27 @@
     "url": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr",
     "url_apk": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr/mobile",
     "url_promo": "https://refpa3665.com/L?tag=d_6392861m_59753c_&site=6392861&ad=59753&r=fr/promo",
-    "verified": "09/11/2026",
-    "wagering": "Freebet si le 1er pari est perdant, sans cote minimale imposée",
-    "app_note": "",
+    "verified": "22/11/2026",
+    "wagering": "Freebets valables 6 mois si le 1er pari est perdant, sans mise ni cote minimales ; paris systèmes et Cash Out exclus",
+    "app_note": "APK Android 158 Mo, app iOS 208,2 Mo (iOS 15+)",
     "sports": [
       "foot"
     ],
-    "freebet": true
+    "freebet": true,
+    "review_pros": [
+      "Agréé par la LONACI depuis la convention du 11 mai 2022",
+      "Dépôt dès 200 FCFA par Orange Money, MTN MoMo, Moov Money ou Wave",
+      "Bonus simple : 1er pari remboursé en freebets, sans mise ni cote minimales",
+      "Outils rares : MyCombi, Cash Out, EarlyWin, annulation de pari en 2 minutes",
+      "Interface claire, la plus facile du comparatif pour débuter"
+    ],
+    "review_cons": [
+      "Bonus plafonné à 5 000 FCFA",
+      "Retrait minimum de 1 000 FCFA, frais au-delà de 2 retraits par 24 heures",
+      "Frais de 100 FCFA sur les dépôts Orange Money et MTN",
+      "Chat limité à 9 h à 20 h, pas de téléphone",
+      "Peu de promotions après l'inscription"
+    ]
   },
   {
     "slug": "melbet",
