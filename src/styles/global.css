@@ -310,6 +310,29 @@ a:hover { color: var(--orange-ink); }
 .sportgrid a:hover { border-color: var(--pitch); color: var(--pitch); }
 .sportgrid a[aria-current='page'] { background: var(--ink); border-color: var(--ink); color: #fff; }
 
+/* ---------- Pages opérateur : colonne latérale collante ---------- */
+.page-grid { display: grid; grid-template-columns: minmax(0, 780px) 280px; justify-content: space-between; gap: 28px; align-items: start; }
+.side { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 12px; }
+.side__card { background: var(--paper); border: 1px solid var(--orange); box-shadow: 0 0 0 1px var(--orange); border-radius: var(--r-card); overflow: hidden; }
+.side__head { display: flex; align-items: center; gap: 12px; padding: 16px 16px 8px; }
+.side__name { margin: 0; font: 700 1.15rem/1.1 var(--font-body); }
+.side__rating { margin: 3px 0 0; font-size: .85rem; color: var(--muted); }
+.side__card > .lonaci { margin: 0; padding: 0 16px 14px; font-size: .88rem; }
+.side__stub { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 16px; background: var(--orange); border-top: 2px dashed rgba(255,255,255,.55); color: #1b1004; }
+.side__stub::before, .side__stub::after { content: ""; position: absolute; top: -12px; width: 22px; height: 22px; border-radius: 50%; background: var(--bg); border: 1px solid var(--orange); }
+.side__stub::before { left: -12px; }
+.side__stub::after { right: -12px; }
+.side__stub .stub__label { color: #3a1d00; }
+.side__stub .stub__amount { font-size: 2rem; }
+.side__stub .stub__btn { background: var(--ink); color: #fff !important; }
+.side__stub .stub__btn:hover { background: #000; }
+.side__stub .stub__fine { color: #4a2700; }
+.side__nav { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-card); padding: 6px; }
+.side__nav a { padding: 9px 12px; border-radius: 8px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: .94rem; }
+.side__nav a:hover { background: var(--pitch-soft); color: var(--pitch); }
+.side__nav a[aria-current] { background: var(--pitch); color: #fff; }
+@media (max-width: 1099px) { .page-grid { display: block; } .side { display: none; } }
+
 /* ---------- Pied de page ---------- */
 .site-footer { background: var(--pitch-deep); color: #c9d8d0; margin-top: 48px; }
 .site-footer__in { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 28px; padding: 40px 16px 32px; }

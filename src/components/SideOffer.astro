@@ -1,0 +1,50 @@
+---
+/**
+ * Bloc latéral collant des pages opérateur (desktop) : bonus en talon + liens vers les autres pages du même opérateur.
+ * Masqué sous 1100 px : sur mobile, la barre fixe en bas d'écran (StickyBar) prend le relais.
+ */
+import Stars from './Stars.astro';
+import Logo from './Logo.astro';
+import { getOperator, goUrl, pageUrl, fmtRating, ctaLabel } from '../lib/data';
+interface Props { brand: string; type?: string; path: string }
+const { brand, type = '', path } = Astro.props;
+const op = getOperator(brand);
+const hasBonus = op.bonus_max_fcfa > 0 || !!op.bonus_no_deposit;
+const ext = { rel: 'sponsored nofollow noopener', target: '_blank' };
+const pages = (await Promise.all([
+  ['', `Avis ${op.name}`],
+  ['code-promo', `Code promo ${op.name}`],
+  ['apk', `Application ${op.name}`],
+  ['inscription', `Inscription ${op.name}`],
+].map(async ([t, label]) => ({ href: await pageUrl(op.slug, t), label })))).filter((p) => p.href);
+const ctaType = type === 'apk' || type === 'inscription' ? type : 'promo';
+---
+<aside class="side" aria-label={`Offre ${op.name}`}>
+  <div class="side__card">
+    <div class="side__head">
+      <Logo op={op} size="sm" />
+      <div>
+        <p class="side__name">{op.name}</p>
+        <p class="side__rating"><Stars rating={op.rating} size={13} /> <strong>{fmtRating(op.rating)}</strong>/5</p>
+      </div>
+    </div>
+    <p class={`lonaci is-${op.lonaci_status}`}>{op.lonaci}</p>
+    <div class="side__stub">
+      <p class="stub__label">{op.bonus_no_deposit ? 'Bonus sans dépôt' : 'Bonus de bienvenue'}</p>
+      {op.bonus_max ? (
+        <>
+          <p class="stub__amount"><small>jusqu'à</small>{op.bonus_max}</p>
+          <p class="stub__terms">{op.bonus}</p>
+        </>
+      ) : <p class="stub__amount stub__amount--text">{op.bonus}</p>}
+      {op.promo_code && <button type="button" class="stub__code" data-code={op.promo_code} aria-label={`Copier le code ${op.promo_code}`}>Code {op.promo_code}</button>}
+      <a class="stub__btn" href={goUrl(op.slug, hasBonus ? ctaType : type)} {...ext}>{hasBonus && ctaType === 'promo' ? 'Obtenir le bonus' : ctaLabel(type, op.name)}</a>
+      <p class="stub__fine">Vérifié le {op.verified}. Lien partenaire, 18+.</p>
+    </div>
+  </div>
+  {pages.length > 1 && (
+    <nav class="side__nav" aria-label={`Pages ${op.name}`}>
+      {pages.map((p) => <a href={p.href} aria-current={p.href === path ? 'page' : undefined}>{p.label}</a>)}
+    </nav>
+  )}
+</aside>
