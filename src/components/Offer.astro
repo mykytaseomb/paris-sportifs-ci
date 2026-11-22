@@ -1,4 +1,5 @@
 ---
+/** Encadré d'offre d'un opérateur (pages avis, APK, code promo) : même logique de ticket + talon. */
 import Stars from './Stars.astro';
 import Logo from './Logo.astro';
 import { getOperator, goUrl, ctaLabel, fmtRating } from '../lib/data';
@@ -7,18 +8,22 @@ const { brand, type = '' } = Astro.props;
 const op = getOperator(brand);
 ---
 <div class="offer">
-  <div class="offer__head">
-    <Logo op={op} size="md" />
-    <div>
-      <p class="offer__name">{op.name}</p>
-      <p class="offer__rating"><Stars rating={op.rating} /> <strong>{fmtRating(op.rating)}</strong>/5</p>
+  <div class="offer__main">
+    <div class="offer__head">
+      <Logo op={op} size="md" />
+      <div>
+        <p class="offer__name">{op.name}</p>
+        <p class="offer__rating"><Stars rating={op.rating} size={14} /> <strong>{fmtRating(op.rating)}</strong>/5</p>
+      </div>
     </div>
+    <p class="offer__bonus">{op.bonus}{op.bonus_max && <span class="nowrap"> jusqu'à {op.bonus_max}</span>}</p>
+    {op.promo_code && (
+      <div class="code"><span class="code__label">Code promo</span><code class="code__value">{op.promo_code}</code>
+        <button type="button" class="code__copy" data-code={op.promo_code}>Copier</button></div>
+    )}
   </div>
-  <p class="offer__bonus">{op.bonus}{op.bonus_max && <span class="nowrap"> jusqu'à {op.bonus_max}</span>}</p>
-  {op.promo_code && (
-    <div class="code"><span class="code__label">Code promo</span><code class="code__value">{op.promo_code}</code>
-      <button type="button" class="code__copy" data-code={op.promo_code}>Copier</button></div>
-  )}
-  <a class="btn btn--cta btn--block" href={goUrl(op.slug, type)} rel="sponsored nofollow noopener" target="_blank">{ctaLabel(type, op.name)}</a>
-  <p class="small">Offre vérifiée le {op.verified} · 18+ · Jouez avec modération</p>
+  <div class="offer__side">
+    <a class="btn" href={goUrl(op.slug, type)} rel="sponsored nofollow noopener" target="_blank">{ctaLabel(type, op.name)}</a>
+    <p class="offer__fine">Offre vérifiée le {op.verified}. Lien partenaire, 18+.</p>
+  </div>
 </div>

@@ -1,7 +1,3 @@
 ---
-import { site } from '../lib/data';
-const updated = (Astro.locals as any).updated as string | undefined;
-const d = updated ? new Date(updated + 'T12:00:00Z') : new Date();
-const date = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+/** La ligne auteur est affichée dans le bandeau de page (gabarit) : ce composant reste pour compatibilité avec les MDX. */
 ---
-<p class="byline">Par <a href={site.author_page}>{site.author}</a> · Mis à jour le <time datetime={updated}>{date}</time> · <span class="badge">Contenu commercial · 18+</span></p>

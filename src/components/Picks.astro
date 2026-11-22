@@ -1,25 +1,38 @@
 ---
+/** Sélection de 3 opérateurs en tête de page, au format ticket (talon bonus en bas). */
 import Stars from './Stars.astro';
 import Logo from './Logo.astro';
-import { getOperator, pageUrl, goUrl, fmtRating, operators, rankOperators } from '../lib/data';
+import { getOperator, pageUrl, goUrl, fmtRating, operators } from '../lib/data';
 interface Props { picks: string }
 const pairs = Astro.props.picks.split(',').map((s) => s.trim()).filter(Boolean).map((s) => {
   const [slug, ...rest] = s.split(':');
   return { op: getOperator(slug.trim()), label: rest.join(':').trim() };
 });
 const cards = await Promise.all(pairs.map(async (p) => ({ ...p, review: await pageUrl(p.op.slug) })));
-const first = rankOperators()[0];
+const verified = operators[0]?.verified;
 ---
 <div class="picks">
   {cards.map(({ op, label, review }) => (
     <div class="pick">
-      <p class="pick__label">{label || op.best_for}</p>
-      <Logo op={op} size="md" />
-      <p class="pick__rating"><Stars rating={op.rating} /> <strong>{fmtRating(op.rating)}</strong>/5</p>
-      <p class="pick__bonus">{op.bonus}{op.bonus_max && <> jusqu'à {op.bonus_max}</>}</p>
-      <a class="btn btn--cta btn--block" href={goUrl(op.slug)} rel="sponsored nofollow noopener" target="_blank">Visiter {op.name}</a>
-      {review && <a class="link-small" href={review}>Lire l'avis complet</a>}
+      <div class="pick__top">
+        <p class="pick__label">{label || op.best_for}</p>
+        <Logo op={op} size="md" />
+        <div class="pick__row">
+          <p class="pick__name">{op.name}</p>
+          <p class="pick__rating">{fmtRating(op.rating)}<small>/5</small></p>
+        </div>
+        <Stars rating={op.rating} size={14} />
+        {review && <a class="pick__more" href={review}>Lire l'avis complet</a>}
+      </div>
+      <div class="pick__bonus">
+        <span>{op.bonus}{op.bonus_max && <> jusqu'à {op.bonus_max}</>}</span>
+        <a class="btn btn--play" href={goUrl(op.slug)} rel="sponsored nofollow noopener" target="_blank">Visiter {op.name}</a>
+      </div>
     </div>
   ))}
 </div>
-<p class="trust"><span>{operators.length} sites comparés</span><span>Offres vérifiées le {first.verified}</span><span><a href="/methodologie/">Méthode de notation publique</a></span></p>
+<ul class="trust">
+  <li>{operators.length} sites comparés</li>
+  <li>Offres vérifiées le {verified}</li>
+  <li><a href="/methodologie/">Méthode de notation publique</a></li>
+</ul>

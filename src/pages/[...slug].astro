@@ -45,9 +45,8 @@ if (d.path !== '/') crumbs.push({ name: d.breadcrumb ?? d.title, href: d.path })
 
 const components = { Byline, Offer, V, Facts, ProsCons, Alternatives, Toc, Faq, Note, Warn, Rg, Shot, Ranking, Picks, TagBar, CompareTable, Count, SportGrid };
 ---
-<Base title={d.seo_title} description={d.seo_desc} path={d.path} brand={d.brand} type={d.type} crumbs={crumbs} faq={d.faq}>
+<Base title={d.seo_title} description={d.seo_desc} path={d.path} brand={d.brand} type={d.type} crumbs={crumbs} faq={d.faq} h1={d.title} updated={d.updated}>
   <article class="prose">
-    <h1>{d.title}</h1>
     <Content components={components} />
   </article>
 </Base>

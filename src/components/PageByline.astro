@@ -1,0 +1,12 @@
+---
+import { site } from '../lib/data';
+interface Props { updated?: string }
+const { updated } = Astro.props;
+const d = updated ? new Date(updated + 'T12:00:00Z') : new Date();
+const date = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<p class="byline">
+  <span>Par <a href={site.author_page}>{site.author}</a></span>
+  <span>Mis à jour le <time datetime={updated}>{date}</time></span>
+  <span class="byline__ad">Contenu commercial, 18+</span>
+</p>

@@ -1,7 +1,8 @@
 ---
 /**
- * Carte opérateur du classement (inspirée de la structure casino.ru) :
- * ruban, logo, rang + note | bandeau code promo | produits | paiements + appareils | boutons.
+ * Ticket opérateur du classement.
+ * Partie gauche : rang, logo, nom, note, statut LONACI, faits (dépôt, paiements, appareils), boutons.
+ * Talon détachable à droite (en bas sur mobile) : le bonus et son lien partenaire.
  */
 import Stars from './Stars.astro';
 import Logo from './Logo.astro';
@@ -15,72 +16,78 @@ const bonusPage = await pageUrl(op.slug, 'code-promo');
 const appPage = await pageUrl(op.slug, 'apk');
 const pay = op.payments.map((p) => ({ id: p, ...payments[p] })).filter((p) => p.name);
 const dev = op.devices.map((d) => ({ id: d, ...devices[d] })).filter((d) => d.name);
-const promoText = op.bonus_max ? `${op.bonus} jusqu'à ${op.bonus_max}` : op.bonus;
 const shownPay = pay.slice(0, 4);
+const hasBonus = op.bonus_max_fcfa > 0 || !!op.bonus_no_deposit;
+const hasApp = op.devices.includes('android') || op.devices.includes('ios');
+const ext = { rel: 'sponsored nofollow noopener', target: '_blank' };
+const nameHref = review || goUrl(op.slug);
+const nameAttrs = review ? {} : ext;
 ---
-<article class={`op-card${rank === 1 ? ' op-card--first' : ''}`} id={`op-${op.slug}`}>
-  <div class={`op-card__brand${op.logo_dark ? ' is-dark' : ''}`}>
-    {op.badge && <span class="op-card__ribbon">{op.badge}</span>}
-    <a class="op-card__logo" href={review || goUrl(op.slug)} rel={review ? undefined : 'sponsored nofollow noopener'} target={review ? undefined : '_blank'}>
-      <Logo op={op} size="lg" />
-    </a>
-    <div class="op-card__id">
-      <p class="op-card__name"><span class="op-card__rank">#{rank}</span> {op.name}</p>
-      <p class="op-card__rating"><Stars rating={op.rating} /> <strong>{fmtRating(op.rating)}</strong></p>
+<article class:list={['ticket', { 'ticket--top': rank === 1 }]} id={`op-${op.slug}`}>
+  <div class="ticket__main">
+    <span class="ticket__rank" aria-label={`Rang ${rank}`}>{rank}</span>
+    <a class="ticket__logo" href={nameHref} {...nameAttrs} tabindex="-1" aria-hidden="true"><Logo op={op} size="md" /></a>
+    <div class="ticket__id">
+      <p class="ticket__name"><a href={nameHref} {...nameAttrs}>{op.name}</a></p>
+      {op.badge && <p class="ticket__badge">{op.badge}</p>}
+    </div>
+    <div class="ticket__score">
+      <span class="ticket__note">{fmtRating(op.rating)}<small>/5</small></span>
+      <Stars rating={op.rating} size={14} />
+    </div>
+    <p class="ticket__info">
+      <span class={`lonaci is-${op.lonaci_status}`}>{op.lonaci}</span>
+      <span>{op.products.join(', ')}</span>
+    </p>
+
+    <dl class="ticket__facts">
+      <div>
+        <dt>Dépôt min.</dt>
+        <dd>{op.min_dep || 'Non publié'}</dd>
+      </div>
+      <div>
+        <dt>Paiements</dt>
+        <dd>{pay.length ? (
+          <ul class="icons">
+            {shownPay.map((p) => <li title={p.name}><img src={p.icon} alt={p.name} width="26" height="26" loading="lazy" /></li>)}
+            {pay.length > shownPay.length && <li class="icons__more">+{pay.length - shownPay.length}</li>}
+          </ul>
+        ) : 'Non publiés'}</dd>
+      </div>
+      <div>
+        <dt>Appareils</dt>
+        <dd><ul class="icons">
+          {dev.map((d) => d.icon
+            ? <li title={d.name}><img src={d.icon} alt={d.name} width="26" height="26" loading="lazy" /></li>
+            : <li title={d.name} class="icons__web"><svg viewBox="0 0 24 24" role="img" aria-label={d.name}><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-3a15.7 15.7 0 0 0-1.3-4 8 8 0 0 1 4.3 4ZM12 4c.8 1.1 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.9 1.9-4ZM4.3 14a8 8 0 0 1 0-4h3.4a16.6 16.6 0 0 0 0 4H4.3Zm.8 2h3a15.7 15.7 0 0 0 1.3 4 8 8 0 0 1-4.3-4Zm3-8h-3a8 8 0 0 1 4.3-4c-.6 1.2-1 2.6-1.3 4ZM12 20c-.8-1.1-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.9-1.9 4Zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4Zm.3 6c.6-1.2 1-2.6 1.3-4h3a8 8 0 0 1-4.3 4Zm1.7-6a16.6 16.6 0 0 0 0-4h3.4a8 8 0 0 1 0 4h-3.4Z"/></svg></li>)}
+        </ul></dd>
+      </div>
+    </dl>
+
+    <div class="ticket__actions">
+      <a class="btn btn--play" href={goUrl(op.slug, type)} {...ext}>Jouer sur {op.name}</a>
+      <div class="ticket__links">
+        {review && <a href={review}>Avis</a>}
+        {bonusPage ? <a href={bonusPage}>Bonus</a> : hasBonus && <a href={goUrl(op.slug, 'promo')} {...ext}>Bonus</a>}
+        {appPage ? <a href={appPage}>Appli</a> : hasApp && <a href={goUrl(op.slug, 'apk')} {...ext}>Appli</a>}
+      </div>
     </div>
   </div>
 
-  <div class="op-card__body">
-    <div class="op-promo">
-      <div class="op-promo__txt">
-        <p class="op-promo__offer">{promoText}</p>
-        {op.promo_code ? (
-          <button type="button" class="op-promo__code" data-code={op.promo_code} aria-label={`Copier le code ${op.promo_code}`}>
-            {op.promo_code} <span aria-hidden="true">⧉</span>
-          </button>
-        ) : <p class="op-promo__sub">Bonus activé via notre lien · 18+</p>}
-      </div>
-      <a class="op-promo__btn" href={goUrl(op.slug, 'promo')} rel="sponsored nofollow noopener" target="_blank">Obtenir</a>
-    </div>
-
-    <ul class="op-tags">
-      {op.products.map((p) => <li>{p}</li>)}
-      <li class={`op-tags__lonaci is-${op.lonaci_status}`}>{op.lonaci}</li>
-    </ul>
-
-    <div class="op-meta">
-      <div>
-        <p class="op-meta__label">Paiements</p>
-        {pay.length ? (
-          <ul class="op-icons">
-            {shownPay.map((p) => <li title={p.name}><img src={p.icon} alt={p.name} loading="lazy" /></li>)}
-            {pay.length > shownPay.length && <li class="op-icons__more">+{pay.length - shownPay.length}</li>}
-          </ul>
-        ) : <p class="op-meta__na">Non publiés</p>}
-      </div>
-      <div>
-        <p class="op-meta__label">Appareils</p>
-        <ul class="op-icons">
-          {dev.map((d) => d.icon
-            ? <li title={d.name}><img src={d.icon} alt={d.name} loading="lazy" /></li>
-            : <li title={d.name} class="op-icons__web" aria-label={d.name}><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-3a15.7 15.7 0 0 0-1.3-4 8 8 0 0 1 4.3 4ZM12 4c.8 1.1 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.9 1.9-4ZM4.3 14a8 8 0 0 1 0-4h3.4a16.6 16.6 0 0 0 0 4H4.3Zm.8 2h3a15.7 15.7 0 0 0 1.3 4 8 8 0 0 1-4.3-4Zm3-8h-3a8 8 0 0 1 4.3-4c-.6 1.2-1 2.6-1.3 4ZM12 20c-.8-1.1-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.9-1.9 4Zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4Zm.3 6c.6-1.2 1-2.6 1.3-4h3a8 8 0 0 1-4.3 4Zm1.7-6a16.6 16.6 0 0 0 0-4h3.4a8 8 0 0 1 0 4h-3.4Z"/></svg></li>)}
-        </ul>
-      </div>
-      <div class="op-meta__dep">
-        <p class="op-meta__label">Dépôt min.</p>
-        <p class="op-meta__val">{op.min_dep || '—'}</p>
-      </div>
-    </div>
-
-    <div class="op-actions">
-      <a class="btn btn--play" href={goUrl(op.slug, type)} rel="sponsored nofollow noopener" target="_blank">Jouer</a>
-      {review && <a class="btn btn--line" href={review}>Avis</a>}
-      {bonusPage
-        ? <a class="btn btn--bonus" href={bonusPage}>Bonus</a>
-        : (op.bonus_max_fcfa > 0 || op.bonus_no_deposit) && <a class="btn btn--bonus" href={goUrl(op.slug, 'promo')} rel="sponsored nofollow noopener" target="_blank">Bonus</a>}
-      {appPage
-        ? <a class="btn btn--line" href={appPage}>Appli</a>
-        : (op.devices.includes('android') || op.devices.includes('ios')) && <a class="btn btn--line" href={goUrl(op.slug, 'apk')} rel="sponsored nofollow noopener" target="_blank">Appli</a>}
-    </div>
+  <div class="ticket__stub">
+    <p class="stub__label">{op.bonus_no_deposit ? 'Bonus sans dépôt' : 'Bonus de bienvenue'}</p>
+    {op.bonus_max ? (
+      <>
+        <p class="stub__amount"><small>jusqu'à</small>{op.bonus_max}</p>
+        <p class="stub__terms">{op.bonus}</p>
+      </>
+    ) : <p class="stub__amount stub__amount--text">{op.bonus}</p>}
+    {op.promo_code && (
+      <button type="button" class="stub__code" data-code={op.promo_code} aria-label={`Copier le code ${op.promo_code}`}>Code {op.promo_code}</button>
+    )}
+    {hasBonus
+      ? <a class="stub__btn" href={goUrl(op.slug, 'promo')} {...ext}>Obtenir le bonus</a>
+      : <a class="stub__btn stub__btn--quiet" href={goUrl(op.slug)} {...ext}>Voir le site</a>}
+    <p class="stub__fine">Lien partenaire, 18+</p>
   </div>
 </article>
