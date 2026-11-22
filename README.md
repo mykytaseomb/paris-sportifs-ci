@@ -10,10 +10,12 @@
 | `dist-upload/` | Готовый сайт. Залить содержимое в `public_html/` на Namecheap (вместе со скрытым `.htaccess`) |
 | `apercu/` | Та же версия с относительными ссылками: открыть `apercu/index.html` двойным кликом |
 
-## Страницы (21 + редиректы)
+## Страницы (25 + редиректы)
 
 - `/` — главная: топ-3, теги, рейтинг 10 операторов, оплата, LONACI, FAQ
-- Посадочные-рейтинги: `/application-paris-sportif/`, `/bonus-paris-sportif/`, `/paris-sportif-orange-money/`
+- Посадочные-рейтинги: `/application-paris-sportif/`, `/paris-sportif-apk/`, `/bonus-paris-sportif/`, `/paris-sportif-gratuit/`, `/paris-en-direct/`, `/paris-sportif-orange-money/`, `/paris-sportif-wave/`
+- Меню в шапке: `menu` в `src/data/meta.json` (категории и подкатегории), фильтры над рейтингом: `tags`
+- Порядок: операторы с полем `priority` (Melbet = 1, 1xBet = 2) всегда идут первыми в любом рейтинге
 - Спорт и игры (7): `/paris-sportif-foot/`, `/paris-basket/`, `/paris-tennis/`, `/paris-hockey-sur-glace/`, `/paris-fifa/`, `/paris-des/`, `/seka/`. Рейтинг на них фильтруется по полю `sports` в `operators.json` (только проверенные данные).
 - 1xBet: `/1xbet/` (обзор), `/1xbet-apk/`, `/code-promo-1xbet/`, `/1xbet-inscription/`
 - Служебные: `/methodologie/`, `/jeu-responsable/`, `/a-propos/`, `/contact/`, `/mentions-legales/`, `404`

@@ -120,7 +120,8 @@
     "app_note": "",
     "sports": [
       "foot"
-    ]
+    ],
+    "freebet": true
   },
   {
     "slug": "melbet",
@@ -427,7 +428,8 @@
     "app_note": "",
     "sports": [
       "foot"
-    ]
+    ],
+    "freebet": true
   },
   {
     "slug": "1win",

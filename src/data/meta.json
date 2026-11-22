@@ -82,16 +82,32 @@
       "href": "/"
     },
     {
-      "label": "Applications",
-      "href": "/application-paris-sportif/"
+      "label": "Paris en direct",
+      "href": "/paris-en-direct/"
     },
     {
       "label": "Bonus",
       "href": "/bonus-paris-sportif/"
     },
     {
+      "label": "Paris gratuits",
+      "href": "/paris-sportif-gratuit/"
+    },
+    {
+      "label": "Applications",
+      "href": "/application-paris-sportif/"
+    },
+    {
+      "label": "APK Android",
+      "href": "/paris-sportif-apk/"
+    },
+    {
       "label": "Orange Money",
       "href": "/paris-sportif-orange-money/"
+    },
+    {
+      "label": "Wave",
+      "href": "/paris-sportif-wave/"
     }
   ],
   "sports": [
@@ -129,6 +145,136 @@
       "key": "seka",
       "label": "Seka",
       "href": "/seka/"
+    }
+  ],
+  "menu": [
+    {
+      "label": "Classements",
+      "href": "/",
+      "items": [
+        {
+          "label": "Meilleurs sites de paris",
+          "href": "/"
+        },
+        {
+          "label": "Paris en direct",
+          "href": "/paris-en-direct/"
+        },
+        {
+          "label": "Paris gratuits",
+          "href": "/paris-sportif-gratuit/"
+        },
+        {
+          "label": "Méthode de notation",
+          "href": "/methodologie/"
+        }
+      ]
+    },
+    {
+      "label": "Paris sportifs",
+      "href": "/paris-sportif-foot/",
+      "items": [
+        {
+          "label": "Football",
+          "href": "/paris-sportif-foot/"
+        },
+        {
+          "label": "Basketball",
+          "href": "/paris-basket/"
+        },
+        {
+          "label": "Tennis",
+          "href": "/paris-tennis/"
+        },
+        {
+          "label": "Hockey sur glace",
+          "href": "/paris-hockey-sur-glace/"
+        },
+        {
+          "label": "FIFA (e-football)",
+          "href": "/paris-fifa/"
+        },
+        {
+          "label": "Dés (Dice)",
+          "href": "/paris-des/"
+        },
+        {
+          "label": "Seka",
+          "href": "/seka/"
+        }
+      ]
+    },
+    {
+      "label": "Bonus",
+      "href": "/bonus-paris-sportif/",
+      "items": [
+        {
+          "label": "Bonus de bienvenue",
+          "href": "/bonus-paris-sportif/"
+        },
+        {
+          "label": "Sans dépôt et freebets",
+          "href": "/paris-sportif-gratuit/"
+        },
+        {
+          "label": "Code promo 1xBet",
+          "href": "/code-promo-1xbet/"
+        }
+      ]
+    },
+    {
+      "label": "Applications",
+      "href": "/application-paris-sportif/",
+      "items": [
+        {
+          "label": "Toutes les applications",
+          "href": "/application-paris-sportif/"
+        },
+        {
+          "label": "APK Android",
+          "href": "/paris-sportif-apk/"
+        },
+        {
+          "label": "1xBet APK",
+          "href": "/1xbet-apk/"
+        }
+      ]
+    },
+    {
+      "label": "Paiement",
+      "href": "/paris-sportif-orange-money/",
+      "items": [
+        {
+          "label": "Orange Money",
+          "href": "/paris-sportif-orange-money/"
+        },
+        {
+          "label": "Wave",
+          "href": "/paris-sportif-wave/"
+        }
+      ]
+    },
+    {
+      "label": "Opérateurs",
+      "href": "/1xbet/",
+      "items": [
+        {
+          "label": "Avis 1xBet",
+          "href": "/1xbet/"
+        },
+        {
+          "label": "Inscription 1xBet",
+          "href": "/1xbet-inscription/"
+        },
+        {
+          "label": "Code promo 1xBet",
+          "href": "/code-promo-1xbet/"
+        },
+        {
+          "label": "1xBet APK",
+          "href": "/1xbet-apk/"
+        }
+      ]
     }
   ]
 }

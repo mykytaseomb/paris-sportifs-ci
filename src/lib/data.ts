@@ -9,6 +9,7 @@ export type Operator = (typeof operatorsRaw)[number] & {
   review_cons?: string[];
   sports?: string[];
   priority?: number;
+  freebet?: boolean;
 };
 
 /** Filtre d'une page de classement (déclaré dans le frontmatter des pages). */
@@ -19,6 +20,7 @@ export interface RankFilter {
   sports?: string[];          // ... tous ces sports/jeux vérifiés dans la ligne de paris
   lonaci?: string[];          // statuts acceptés : agree | officiel | declare | absent
   has_bonus?: boolean;        // offre de bienvenue chiffrée
+  free?: boolean;             // bonus sans dépôt ou freebet
   min_rating?: number;
   sort?: 'rating' | 'bonus' | 'min_dep';
   limit?: number;
@@ -29,6 +31,7 @@ export const site = meta.site;
 export const payments = meta.payments as Record<string, { name: string; icon: string }>;
 export const devices = meta.devices as Record<string, { name: string; icon: string }>;
 export const nav = meta.nav;
+export const menu = (meta as any).menu as { label: string; href: string; items: { label: string; href: string }[] }[];
 export const tags = meta.tags;
 export const sports = (meta as any).sports as { key: string; label: string; href: string }[];
 
@@ -49,6 +52,7 @@ export function rankOperators(filter: RankFilter = {}): Operator[] {
       (!filter.sports || filter.sports.every((v) => (o.sports ?? []).includes(v))) &&
       (!filter.lonaci || filter.lonaci.includes(o.lonaci_status)) &&
       (!filter.has_bonus || o.bonus_max_fcfa > 0 || o.bonus_no_deposit) &&
+      (!filter.free || !!o.bonus_no_deposit || !!o.freebet) &&
       (filter.min_rating === undefined || o.rating >= filter.min_rating),
   );
   const byRating = (a: Operator, b: Operator) => b.rating - a.rating;

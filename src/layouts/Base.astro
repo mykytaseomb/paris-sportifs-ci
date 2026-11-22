@@ -4,7 +4,7 @@ import '@fontsource-variable/source-sans-3';
 import '../styles/global.css';
 import PageByline from '../components/PageByline.astro';
 import StickyBar from '../components/StickyBar.astro';
-import { site, nav, getOperator, sports } from '../lib/data';
+import { site, menu, getOperator, sports } from '../lib/data';
 
 interface Props {
   title: string;
@@ -37,6 +37,7 @@ if (faq.length) {
     mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: strip(f.a) } })),
   });
 }
+const inGroup = (g: { href: string; items: { href: string }[] }) => g.href === path || g.items.some((i) => i.href === path);
 const showSticky = brand && getOperator(brand) && type !== 'ranking' && type !== 'info';
 ---
 <!doctype html>
@@ -62,12 +63,28 @@ const showSticky = brand && getOperator(brand) && type !== 'ranking' && type !==
     <div class="wrap site-header__in">
       <a href="/" class="site-logo" aria-label="paris-sportifs.ci, accueil"><img src="/img/site/logo-dark.png" alt="paris-sportifs.ci" width="220" height="58" /></a>
       <nav class="nav-desk" aria-label="Navigation principale">
-        {nav.map((n) => <a href={n.href} aria-current={n.href === path ? 'page' : undefined}>{n.label}</a>)}
+        <ul class="mm">
+          {menu.map((g) => (
+            <li class:list={['mm__item', { 'is-current': inGroup(g) }]}>
+              <a class="mm__top" href={g.href} aria-haspopup="true">{g.label}<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+              <div class:list={['mm__panel', { 'mm__panel--cols': g.items.length > 5 }]}>
+                <ul>
+                  {g.items.map((i) => <li><a href={i.href} aria-current={i.href === path ? 'page' : undefined}>{i.label}</a></li>)}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ul>
       </nav>
       <details class="nav-mob">
         <summary aria-label="Menu"><span></span><span></span><span></span></summary>
         <nav aria-label="Navigation mobile">
-          {nav.map((n) => <a href={n.href} aria-current={n.href === path ? 'page' : undefined}>{n.label}</a>)}
+          {menu.map((g) => (
+            <details class="nav-mob__grp" open={inGroup(g)}>
+              <summary>{g.label}</summary>
+              <ul>{g.items.map((i) => <li><a href={i.href} aria-current={i.href === path ? 'page' : undefined}>{i.label}</a></li>)}</ul>
+            </details>
+          ))}
         </nav>
       </details>
     </div>
@@ -99,7 +116,7 @@ const showSticky = brand && getOperator(brand) && type !== 'ranking' && type !==
       </div>
       <div>
         <p class="site-footer__h">Classements</p>
-        <a href="/">Meilleurs sites</a><a href="/application-paris-sportif/">Applications</a><a href="/bonus-paris-sportif/">Bonus</a><a href="/paris-sportif-orange-money/">Orange Money</a>
+        <a href="/">Meilleurs sites</a><a href="/paris-en-direct/">Paris en direct</a><a href="/bonus-paris-sportif/">Bonus</a><a href="/paris-sportif-gratuit/">Paris gratuits</a><a href="/application-paris-sportif/">Applications</a><a href="/paris-sportif-apk/">APK Android</a><a href="/paris-sportif-orange-money/">Orange Money</a><a href="/paris-sportif-wave/">Wave</a>
       </div>
       <div>
         <p class="site-footer__h">Sports</p>
