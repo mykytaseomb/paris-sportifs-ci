@@ -47,7 +47,7 @@
     },
     "web": {
       "name": "Site mobile",
-      "icon": ""
+      "icon": "/img/dev/web.svg"
     }
   },
   "nav": [

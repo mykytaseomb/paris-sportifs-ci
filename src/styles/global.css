@@ -158,9 +158,9 @@ a:hover { color: var(--orange-ink); }
 .ticket__facts div { min-width: 0; }
 .ticket__facts dt { font-size: .8rem; color: var(--muted); margin: 0 0 3px; }
 .ticket__facts dd { margin: 0; font-weight: 700; font-size: .95rem; }
-.icons { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 10px; }
-.icons li { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; }
-.icons img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 5px; }
+.icons { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 6px; }
+.icons li { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; }
+.icons img { width: 30px; height: 30px; object-fit: contain; border-radius: 7px; }
 .icons__more { font-size: .8rem; color: var(--muted); font-weight: 700; width: auto !important; }
 .icons__web { color: var(--muted); }
 .icons__web svg { width: 21px; height: 21px; }
