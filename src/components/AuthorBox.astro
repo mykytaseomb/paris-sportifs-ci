@@ -5,7 +5,7 @@ interface Props { id?: string }
 const a = authors[Astro.props.id ?? 'chris-boli'];
 ---
 <aside class="authorbox" aria-label="À propos de l'auteur">
-  <a class="authorbox__avatar" href={a.page} aria-hidden="true" tabindex="-1">{a.initials}</a>
+  <a class="authorbox__avatar" href={a.page} aria-hidden="true" tabindex="-1">{a.photo ? <img src={a.photo} alt="" width="64" height="64" loading="lazy" /> : a.initials}</a>
   <div class="authorbox__body">
     <p class="authorbox__label">Rédigé et vérifié par</p>
     <p class="authorbox__name"><a href={a.page}>{a.name}</a></p>

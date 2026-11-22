@@ -27,7 +27,7 @@ export interface RankFilter {
 
 export const operators = operatorsRaw as Operator[];
 export const site = meta.site;
-export const authors = (meta as any).authors as Record<string, { name: string; role: string; page: string; linkedin: string; initials: string; bio: string }>;
+export const authors = (meta as any).authors as Record<string, { name: string; role: string; page: string; linkedin: string; initials: string; bio: string; photo?: string }>;
 export const payments = meta.payments as Record<string, { name: string; icon: string }>;
 export const devices = meta.devices as Record<string, { name: string; icon: string }>;
 export const nav = meta.nav;
