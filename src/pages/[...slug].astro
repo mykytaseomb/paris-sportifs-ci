@@ -21,6 +21,8 @@ import CompareTable from '../components/CompareTable.astro';
 import Count from '../components/Count.astro';
 import SportGrid from '../components/SportGrid.astro';
 import SideOffer from '../components/SideOffer.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import AuthorArticles from '../components/AuthorArticles.astro';
 import { getOperator } from '../lib/data';
 
 export async function getStaticPaths() {
@@ -45,19 +47,22 @@ if (d.brand && d.type && d.type !== 'ranking' && d.type !== 'info') {
 if (d.path !== '/') crumbs.push({ name: d.breadcrumb ?? d.title, href: d.path });
 
 const withSide = !!d.brand && d.type !== 'ranking' && d.type !== 'info';
-const components = { Byline, Offer, V, Facts, ProsCons, Alternatives, Toc, Faq, Note, Warn, Rg, Shot, Ranking, Picks, TagBar, CompareTable, Count, SportGrid };
+const withAuthor = d.type !== 'info';
+const components = { AuthorArticles, Byline, Offer, V, Facts, ProsCons, Alternatives, Toc, Faq, Note, Warn, Rg, Shot, Ranking, Picks, TagBar, CompareTable, Count, SportGrid };
 ---
 <Base title={d.seo_title} description={d.seo_desc} path={d.path} brand={d.brand} type={d.type} crumbs={crumbs} faq={d.faq} h1={d.title} updated={d.updated}>
   {withSide ? (
     <div class="page-grid">
       <article class="prose">
         <Content components={components} />
+        <AuthorBox />
       </article>
       <SideOffer brand={d.brand!} type={d.type} path={d.path} />
     </div>
   ) : (
     <article class="prose">
       <Content components={components} />
+      {withAuthor && <AuthorBox />}
     </article>
   )}
 </Base>

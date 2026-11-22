@@ -1,0 +1,12 @@
+---
+/** Liste des articles de l'auteur, générée depuis les pages du site (hors pages d'information). */
+import { getCollection } from 'astro:content';
+const pages = (await getCollection('pages'))
+  .filter((p) => p.data.type !== 'info' && p.data.path !== '/')
+  .sort((a, b) => (b.data.updated ?? '').localeCompare(a.data.updated ?? '') || a.data.title.localeCompare(b.data.title));
+const fmt = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<ul class="author-articles">
+  <li><a href="/">Les meilleurs sites de paris sportifs en Côte d'Ivoire</a></li>
+  {pages.map((p) => <li><a href={p.data.path}>{p.data.title}</a> <span class="muted">mis à jour le {fmt(p.data.updated)}</span></li>)}
+</ul>

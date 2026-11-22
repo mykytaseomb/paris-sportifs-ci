@@ -4,7 +4,7 @@ import '@fontsource-variable/source-sans-3';
 import '../styles/global.css';
 import PageByline from '../components/PageByline.astro';
 import StickyBar from '../components/StickyBar.astro';
-import { site, menu, getOperator, sports } from '../lib/data';
+import { site, menu, getOperator, sports, authors } from '../lib/data';
 
 interface Props {
   title: string;
@@ -31,6 +31,10 @@ if (crumbs.length) {
     itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: new URL(c.href, site.url).href })),
   });
 }
+const au = authors['chris-boli'];
+const person = { '@type': 'Person', name: au.name, url: new URL(au.page, site.url).href, jobTitle: au.role, sameAs: [au.linkedin] };
+if (path === au.page) ld.push({ '@context': 'https://schema.org', ...person });
+else if (h1 && type !== 'info') ld.push({ '@context': 'https://schema.org', '@type': 'Article', headline: h1, dateModified: updated, inLanguage: 'fr-CI', author: person, publisher: { '@type': 'Organization', name: site.name, url: site.url } });
 if (faq.length) {
   ld.push({
     '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -134,7 +138,7 @@ const showSticky = brand && getOperator(brand) && type !== 'ranking' && type !==
       </div>
       <div>
         <p class="site-footer__h">Infos</p>
-        <a href="/methodologie/">Méthodologie</a><a href="/jeu-responsable/">Jeu responsable</a><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a>
+        <a href="/methodologie/">Méthodologie</a><a href="/auteur/chris-boli/">Notre rédacteur</a><a href="/jeu-responsable/">Jeu responsable</a><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a><a href="/mentions-legales/">Mentions légales</a>
       </div>
     </div>
   </footer>

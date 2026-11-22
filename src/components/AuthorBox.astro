@@ -1,0 +1,20 @@
+---
+/** Encadré auteur affiché en fin d'article (toutes les pages de contenu). */
+import { authors } from '../lib/data';
+interface Props { id?: string }
+const a = authors[Astro.props.id ?? 'chris-boli'];
+---
+<aside class="authorbox" aria-label="À propos de l'auteur">
+  <a class="authorbox__avatar" href={a.page} aria-hidden="true" tabindex="-1">{a.initials}</a>
+  <div class="authorbox__body">
+    <p class="authorbox__label">Rédigé et vérifié par</p>
+    <p class="authorbox__name"><a href={a.page}>{a.name}</a></p>
+    <p class="authorbox__role">{a.role}</p>
+    <p class="authorbox__bio">{a.bio}</p>
+    <p class="authorbox__links">
+      <a href={a.page}>Tous ses articles</a>
+      <a href={a.linkedin} rel="noopener me" target="_blank">LinkedIn</a>
+      <a href="/methodologie/">Notre méthode de notation</a>
+    </p>
+  </div>
+</aside>

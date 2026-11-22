@@ -2,8 +2,8 @@
   "site": {
     "name": "paris-sportifs.ci",
     "url": "https://paris-sportifs.com.ci",
-    "author": "La rédaction",
-    "author_page": "/a-propos/",
+    "author": "Chris Boli",
+    "author_page": "/auteur/chris-boli/",
     "indexable": false
   },
   "payments": {
@@ -284,5 +284,15 @@
         }
       ]
     }
-  ]
+  ],
+  "authors": {
+    "chris-boli": {
+      "name": "Chris Boli",
+      "role": "Rédacteur en chef, paris sportifs en Côte d'Ivoire",
+      "page": "/auteur/chris-boli/",
+      "linkedin": "https://www.linkedin.com/in/chris-boli-06ba21293/",
+      "initials": "CB",
+      "bio": "Chris Boli dirige la rédaction de paris-sportifs.com.ci. Il vérifie les statuts LONACI, les bonus et les moyens de paiement des sites comparés, et met à jour les classements chaque mois."
+    }
+  }
 }
