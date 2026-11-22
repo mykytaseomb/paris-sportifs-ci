@@ -69,8 +69,7 @@
       "fifa",
       "des",
       "seka"
-    ],
-    "priority": 2
+    ]
   },
   {
     "slug": "betclic",
@@ -126,7 +125,7 @@
   {
     "slug": "melbet",
     "name": "Melbet",
-    "rating": 4.2,
+    "rating": 4.7,
     "badge": "Top du mois",
     "best_for": "Gros bonus sport",
     "logo": "/img/operators/melbet.png",
@@ -135,12 +134,14 @@
     "bonus_max": "130 000 FCFA",
     "bonus_max_fcfa": 130000,
     "promo_code": "",
-    "min_dep": "≈ 650 FCFA",
-    "min_dep_fcfa": 650,
+    "min_dep": "300 FCFA",
+    "min_dep_fcfa": 300,
     "payments": [
       "orange-money",
       "mtn-momo",
-      "wave"
+      "moov-money",
+      "wave",
+      "crypto"
     ],
     "devices": [
       "android",
@@ -151,9 +152,9 @@
       "Paris sportifs",
       "Live"
     ],
-    "lonaci": "Absent de la liste LONACI de 2023",
-    "lonaci_status": "absent",
-    "usp": "Gros bonus de dépôt et beaucoup de marchés live",
+    "lonaci": "Agréé par la LONACI",
+    "lonaci_status": "agree",
+    "usp": "Agréé LONACI, bonus 200 % jusqu'à 130 000 FCFA, dépôt dès 300 FCFA",
     "pros": [
       "Bonus de 200 % jusqu'à 130 000 FCFA",
       "Beaucoup de marchés en live",
@@ -162,12 +163,12 @@
     "cons": [
       "Aucun agrément LONACI connu"
     ],
-    "url": "https://melbet.com.ci/",
+    "url": "https://melbet.ci/",
     "url_apk": "https://melbet.com.ci/apk/",
     "url_promo": "",
-    "verified": "09/11/2026",
-    "wagering": "Conditions non vérifiées : à lire sur le site",
-    "app_note": "",
+    "verified": "22/11/2026",
+    "wagering": "Mise x8 en combinés de 3 sélections (cote 2,10 min.), 30 jours",
+    "app_note": "APK Android 53,2 Mo (Android 7.0+), app iOS 226,5 Mo (iOS 15+)",
     "sports": [
       "foot",
       "basket",
@@ -176,8 +177,7 @@
       "fifa",
       "des",
       "seka"
-    ],
-    "priority": 1
+    ]
   },
   {
     "slug": "betwinner",

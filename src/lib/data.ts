@@ -8,7 +8,6 @@ export type Operator = (typeof operatorsRaw)[number] & {
   review_pros?: string[];
   review_cons?: string[];
   sports?: string[];
-  priority?: number;
   freebet?: boolean;
 };
 
@@ -56,13 +55,10 @@ export function rankOperators(filter: RankFilter = {}): Operator[] {
       (filter.min_rating === undefined || o.rating >= filter.min_rating),
   );
   const byRating = (a: Operator, b: Operator) => b.rating - a.rating;
-  // Opérateurs mis en avant (champ « priority » : 1, 2…) : toujours en tête, dans cet ordre, s'ils passent le filtre.
-  const pinned = (o: Operator) => o.priority ?? Infinity;
   if (filter.sort === 'bonus') list.sort((a, b) => b.bonus_max_fcfa - a.bonus_max_fcfa || byRating(a, b));
   else if (filter.sort === 'min_dep')
     list.sort((a, b) => (a.min_dep_fcfa ?? 1e9) - (b.min_dep_fcfa ?? 1e9) || byRating(a, b));
   else list.sort(byRating);
-  list = [...list.filter((o) => o.priority).sort((a, b) => pinned(a) - pinned(b)), ...list.filter((o) => !o.priority)];
   return filter.limit ? list.slice(0, filter.limit) : list;
 }
 
