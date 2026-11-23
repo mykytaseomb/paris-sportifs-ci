@@ -4,7 +4,7 @@
     "url": "https://paris-sportifs.com.ci",
     "author": "Chris Boli",
     "author_page": "/auteur/chris-boli/",
-    "indexable": false
+    "indexable": true
   },
   "payments": {
     "orange-money": {
