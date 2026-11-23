@@ -14,6 +14,7 @@ const a = authors[Astro.props.id ?? 'chris-boli'];
     <p class="authorbox__links">
       <a href={a.page}>Tous ses articles</a>
       <a href={a.linkedin} rel="noopener me" target="_blank">LinkedIn</a>
+      {a.facebook && <a href={a.facebook} rel="noopener me" target="_blank">Facebook</a>}
       <a href="/methodologie/">Notre méthode de notation</a>
     </p>
   </div>

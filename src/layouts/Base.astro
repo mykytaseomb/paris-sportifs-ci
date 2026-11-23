@@ -32,7 +32,7 @@ if (crumbs.length) {
   });
 }
 const au = authors['chris-boli'];
-const person = { '@type': 'Person', name: au.name, url: new URL(au.page, site.url).href, jobTitle: au.role, sameAs: [au.linkedin], image: au.photo ? new URL(au.photo, site.url).href : undefined, homeLocation: { '@type': 'Place', name: 'Abidjan, Côte d\'Ivoire' }, knowsLanguage: ['fr', 'en'], alumniOf: { '@type': 'CollegeOrUniversity', name: 'Université Félix Houphouët-Boigny' }, worksFor: { '@type': 'Organization', name: site.name, url: site.url } };
+const person = { '@type': 'Person', name: au.name, url: new URL(au.page, site.url).href, jobTitle: au.role, sameAs: [au.linkedin, au.facebook].filter(Boolean), image: au.photo ? new URL(au.photo, site.url).href : undefined, homeLocation: { '@type': 'Place', name: 'Abidjan, Côte d\'Ivoire' }, knowsLanguage: ['fr', 'en'], alumniOf: { '@type': 'CollegeOrUniversity', name: 'Université Félix Houphouët-Boigny' }, hasOccupation: { '@type': 'Occupation', name: 'Photojournaliste' }, worksFor: { '@type': 'Organization', name: site.name, url: site.url } };
 if (path === au.page) ld.push({ '@context': 'https://schema.org', ...person });
 else if (h1 && type !== 'info') ld.push({ '@context': 'https://schema.org', '@type': 'Article', headline: h1, dateModified: updated, inLanguage: 'fr-CI', author: person, publisher: { '@type': 'Organization', name: site.name, url: site.url } });
 if (faq.length) {
