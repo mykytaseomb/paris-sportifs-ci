@@ -4,7 +4,13 @@ const ops = JSON.parse(readFileSync(new URL('../src/data/operators.json', import
 const meta = JSON.parse(readFileSync(new URL('../src/data/meta.json', import.meta.url)));
 const home = meta.site.url + '/';
 const indexable = meta.site.indexable === true; // false = site en préproduction : fermé à l'indexation
-const lines = ['# Généré automatiquement par scripts/postbuild.mjs', 'Options -Indexes', 'RewriteEngine On', 'RewriteRule ^\.ftp-deploy - [F,L]', ''];
+const lines = ['# Généré automatiquement par scripts/postbuild.mjs', 'Options -Indexes', 'RewriteEngine On', 'RewriteRule ^\.ftp-deploy - [F,L]', '',
+  '# Hôte unique : www -> domaine nu, en HTTPS',
+  'RewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]', 'RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L,NE]',
+  '# HTTP -> HTTPS (derrière Cloudflare : en-tête CF-Visitor, sans risque de boucle)',
+  'RewriteCond %{HTTP:CF-Visitor} scheme\\W+http\\W*$ [NC]', 'RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]',
+  '# Pages sans barre finale -> avec barre finale',
+  'RewriteCond %{REQUEST_FILENAME} !-f', 'RewriteCond %{REQUEST_URI} !(\\.[a-z0-9]{2,5}|/)$ [NC]', 'RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [R=301,L]', ''];
 if (!indexable) lines.push('# PRÉPRODUCTION : tout le site en noindex (passer site.indexable à true dans meta.json au lancement)',
   '<IfModule mod_headers.c>', '  Header always set X-Robots-Tag "noindex, nofollow"', '</IfModule>', '');
 for (const o of ops) {
